@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b09">
+<title>SHKTN.GAMING.SHOW</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --green:#39ff75;
+    --black:#080b09;
+    --card:#111713;
+    --white:#f4fff6;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:var(--black);
+    color:var(--white);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:rgba(57,255,117,.09);
+    filter:blur(130px);
+    top:10%;
+    left:10%;
+    pointer-events:none;
+    z-index:-1;
+}
+
+header{
+    width:100%;
+    padding:22px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid rgba(57,255,117,.15);
+}
+
+.logo{
+    color:var(--green);
+    font-size:19px;
+    font-weight:900;
+    letter-spacing:1px;
+    direction:ltr;
+}
+
+.header-link{
+    text-decoration:none;
+    color:white;
+    border:1px solid #303a32;
+    padding:10px 18px;
+    border-radius:9px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.header-link:hover{
+    border-color:var(--green);
+    color:var(--green);
+}
+
+main{
+    max-width:950px;
+    margin:auto;
+    padding:85px 20px 50px;
+    text-align:center;
+}
+
+.tag{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid rgba(57,255,117,.3);
+    background:rgba(57,255,117,.06);
+    color:var(--green);
+    border-radius:30px;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+h1{
+    font-size:clamp(30px,6vw,58px);
+    font-weight:1000;
+    letter-spacing:-1px;
+    direction:ltr;
+    line-height:1.5;
+    text-shadow:0 0 35px rgba(57,255,117,.12);
+}
+
+h1 span{
+    color:var(--green);
+}
+
+.description{
+    color:#b6c1b8;
+    font-size:15px;
+    line-height:2.2;
+    margin:15px auto 38px;
+}
+
+.video-card{
+    max-width:590px;
+    margin:0 auto;
+    padding:28px;
+    text-align:right;
+    background:linear-gradient(145deg,#151d17,#0e120f);
+    border:1px solid #263b2b;
+    border-radius:18px;
+    box-shadow:0 15px 60px rgba(0,0,0,.35);
+    transition:transform .3s,border-color .3s;
+}
+
+.video-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--green);
+}
+
+.video-preview{
+    height:220px;
+    border-radius:12px;
+    background:
+        radial-gradient(ellipse at center,rgba(57,255,117,.13),transparent 65%),
+        #090d0a;
+    border:1px solid #202d23;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:24px;
+    position:relative;
+    overflow:hidden;
+}
+
+.video-preview::before,
+.video-preview::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border:1px solid rgba(57,255,117,.08);
+    transform:rotate(45deg);
+}
+
+.video-preview::after{
+    width:130px;
+    height:130px;
+}
+
+.play-icon{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#071109;
+    font-size:24px;
+    padding-right:4px;
+    box-shadow:0 0 35px rgba(57,255,117,.25);
+    z-index:1;
+}
+
+.preview-text{
+    margin-top:17px;
+    font-size:12px;
+    color:#a4b5a8;
+    z-index:1;
+}
+
+.card-title{
+    font-size:19px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.card-description{
+    color:#9ca99f;
+    font-size:13px;
+    line-height:2;
+    margin-bottom:22px;
+}
+
+.watch-button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    padding:15px;
+    background:var(--green);
+    color:#071109;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
+    border-radius:10px;
+    transition:.25s;
+}
+
+.watch-button:hover{
+    background:#8bffa9;
+    box-shadow:0 0 25px rgba(57,255,117,.18);
+    transform:scale(1.01);
+}
+
+.social-section{
+    margin-top:65px;
+}
+
+.social-section h2{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.social-section h2 span{
+    color:var(--green);
+}
+
+.social-description{
+    color:#9ca99f;
+    font-size:13px;
+    line-height:2;
+    margin-bottom:25px;
+}
+
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.social-card{
+    min-width:220px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    text-decoration:none;
+    color:white;
+    background:#111713;
+    border:1px solid #26352a;
+    padding:17px 22px;
+    border-radius:12px;
+    text-align:right;
+    transition:.3s;
+}
+
+.social-card:hover{
+    border-color:var(--green);
+    transform:translateY(-3px);
+}
+
+.social-icon{
+    width:43px;
+    height:43px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(57,255,117,.1);
+    color:var(--green);
+    border-radius:10px;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.social-name{
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.social-handle{
+    color:#93a196;
+    font-size:12px;
+    direction:ltr;
+}
+
+footer{
+    border-top:1px solid #1b271e;
+    padding:25px 15px;
+    margin-top:65px;
+    text-align:center;
+    color:#69766d;
+    font-size:12px;
+}
+
+footer span{
+    color:var(--green);
+    direction:ltr;
+    display:inline-block;
+}
+
+@media(max-width:600px){
+    header{
+        padding:18px 5%;
+    }
+
+    .logo{
+        font-size:14px;
+    }
+
+    .header-link{
+        padding:9px 11px;
+        font-size:11px;
+    }
+
+    main{
+        padding-top:65px;
+    }
+
+    .description{
+        font-size:13px;
+    }
+
+    .video-card{
+        padding:17px;
+    }
+
+    .video-preview{
+        height:180px;
+    }
+
+    .social-card{
+        width:100%;
+    }
+
+    .social-links{
+        padding:0 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">SHKTN.GAMING.SHOW</div>
+
+    <a class="header-link"
+       href="https://www.aparat.com/SHKTN.GAMING.SHOW"
+       target="_blank"
+       rel="noopener noreferrer">
+        کانال آپارات ↗
+    </a>
+</header>
+
+<main>
+
+    <div class="tag">● GAMING CHANNEL</div>
+
+    <h1>
+        SHKTN.<span>GAMING.</span>SHOW
+    </h1>
+
+    <p class="description">
+        دنیای گیمینگ، آموزش و تجربه‌های جدید
+        <br>
+        دوستان حتماً کانال آپارات و بله رو دنبال کنید 💚
+    </p>
+  <!--!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <section class="video-card">
+        <a href="https://www.aparat.com/v/mfmgc36?refererRef=channel_page"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="text-decoration:none;color:inherit">
+            <div class="video-preview">
+                <div class="play-icon">▶</div>
+                <div class="preview-text">WATCH ON APARAT</div>
+            </div>
+        </a>
+        <h2 class="card-title">!! آموزش کپی خور و نصب بازی PS4 ورژن 13.52 و پایین تر!! بالاخره منتشر شد!</h2>
+        <a class="watch-button"
+           href="https://www.aparat.com/v/mfmgc36?refererRef=channel_page"
+           target="_blank"
+           rel="noopener noreferrer">
+            ▶ مشاهده در آپارات
+        </a>
+    </section>
+  <!--!!!!!!!!!!!!!!!!!!!!!!!!!-->
+      <section class="video-card">
+        <a href="https://www.aparat.com/v/wyv2z95?refererRef=channel_page"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="text-decoration:none;color:inherit">
+            <div class="video-preview">
+                <div class="play-icon">▶</div>
+                <div class="preview-text">WATCH ON APARAT</div>
+            </div>
+        </a>
+        <h2 class="card-title">آموزش تبدیل مانیتور IPS به OLED!</h2>
+        <a class="watch-button"
+           href="https://www.aparat.com/v/wyv2z95?refererRef=channel_page"
+           target="_blank"
+           rel="noopener noreferrer">
+            ▶ مشاهده در آپارات
+        </a>
+    </section>
+  <!--!!!!!!!!!!!!!!!!!!!!!!!!!-->
+      <section class="video-card">
+        <a href="https://www.aparat.com/v/mfmgc36?refererRef=channel_page"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="text-decoration:none;color:inherit">
+            <div class="video-preview">
+                <div class="play-icon">▶</div>
+                <div class="preview-text">WATCH ON APARAT</div>
+            </div>
+        </a>
+        <h2 class="card-title">اموزش کپی خور و جلبریک کردن ps4 از طریق هاست / ورژن13.00</h2>
+        <a class="watch-button"
+           href="https://www.aparat.com/v/iau2m26?refererRef=channel_page"
+           target="_blank"
+           rel="noopener noreferrer">
+            ▶ مشاهده در آپارات
+        </a>
+    </section> 
+  <!--!!!!!!!!!!!!!!!!!!!!!!!!!-->
+  <section class="video-card">
+        <a href="https://www.aparat.com/v/mfmgc36?refererRef=channel_page"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="text-decoration:none;color:inherit">
+            <div class="video-preview">
+                <div class="play-icon">▶</div>
+                <div class="preview-text">WATCH ON APARAT</div>
+            </div>
+        </a>
+        <h2 class="card-title">آموزش نصب بازی GTA V کم حجم برای کامپیوتر</h2>
+        <a class="watch-button"
+           href="https://www.aparat.com/v/kksk787?refererRef=channel_page"
+           target="_blank"
+           rel="noopener noreferrer">
+            ▶ مشاهده در آپارات
+        </a>
+    </section>   
+  <!--!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <section class="social-section">
+
+        <h2>ما رو <span>دنبال کنید!</span></h2>
+
+        <p class="social-description">
+            برای حمایت از کانال، در آپارات و بله همراه ما باشید.
+        </p>
+
+        <div class="social-links">
+
+            <a class="social-card"
+               href="https://www.aparat.com/SHKTN.GAMING.SHOW"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <div class="social-icon">▶</div>
+
+                <div>
+                    <div class="social-name">کانال آپارات</div>
+                    <div class="social-handle">SHKTN.GAMING.SHOW</div>
+                </div>
+
+            </a>
+
+            <a class="social-card"
+               href="https://ble.ir/SHgaming"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <div class="social-icon">B</div>
+
+                <div>
+                    <div class="social-name">کانال بله</div>
+                    <div class="social-handle">@SHgaming</div>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+     <span>SHKTN.GAMING.SHOW</span>
+    <br><br>
+    © تمامی حقوق محفوظ است.
+</footer>
+
+</body>
+  </html>
